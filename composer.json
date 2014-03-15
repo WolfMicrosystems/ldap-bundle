@@ -1,0 +1,21 @@
+{
+    "name": "wms/ldap-bundle",
+    "description": "Ldap Authentication bundle for Symfony2",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Andrew Moore",
+            "email": "me@andrewmoore.ca"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.7",
+        "wms/ldap": "~0.1"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~3.7.0"
+    },
+    "autoload": {
+        "psr-0": { "WMS\\": "src/" }
+    }
+}
