@@ -341,7 +341,7 @@ class Configuration implements ConfigurationInterface {
                         'additional_dn'          => null,
                         'object_class'           => 'inetorgperson',
                         'object_filter'          => '(objectclass=inetorgperson)',
-                        'username_attribute'     => 'cn',
+                        'username_attribute'     => 'uid',
                         'unique_id_attribute'    => 'entryUUID',
                         'first_name_attribute'   => 'givenName',
                         'last_name_attribute'    => 'sn',
@@ -361,7 +361,7 @@ class Configuration implements ConfigurationInterface {
                         'group_members_attribute_mapping_type'      => 'dn',
                         'account_membership_attribute'              => 'memberOf',
                         'account_membership_attribute_mapping_type' => 'dn',
-                        'use_attribute_from_group'                  => false,
+                        'use_attribute_from_group'                  => true,
                         'use_attribute_from_account'                => false
                     )
                 )
