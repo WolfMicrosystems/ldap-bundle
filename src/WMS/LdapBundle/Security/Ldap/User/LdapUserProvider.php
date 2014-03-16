@@ -67,7 +67,6 @@ class LdapUserProvider implements UserProviderInterface
             $user->setLastName($account->getLastName());
             $user->setDisplayName($account->getDisplayName());
             $user->setEmail($account->getEmail());
-            $user->setPictureBlob($account->getPictureBlob());
 
             $eventDispatcher = $this->registry->getEventDispatcher($connectionName);
             $eventDispatcher->dispatch(Enum\LdapEvents::RESOLVING_USER_ROLES, new ResolvingUserRolesEvent($connection, $user, $account, $groups->toArray()));

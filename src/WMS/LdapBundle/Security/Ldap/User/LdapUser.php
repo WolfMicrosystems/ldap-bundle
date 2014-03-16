@@ -13,7 +13,6 @@ class LdapUser implements LdapUserInterface
     protected $lastName;
     protected $displayName;
     protected $email;
-    protected $pictureBlob;
     protected $uniqueId;
     /** @var Dn */
     protected $dn;
@@ -76,16 +75,6 @@ class LdapUser implements LdapUserInterface
     public function setEmail($email)
     {
         $this->email = $email;
-    }
-
-    public function getPictureBlob()
-    {
-        return $this->pictureBlob;
-    }
-
-    public function setPictureBlob($pictureBlob)
-    {
-        $this->pictureBlob = $pictureBlob;
     }
 
     public function getUniqueId()

@@ -33,9 +33,6 @@ interface LdapUserInterface extends UserInterface
     public function getEmail();
     public function setEmail($email);
 
-    public function getPictureBlob();
-    public function setPictureBlob($pictureBlob);
-
     public function getUniqueId();
     public function setUniqueId($uniqueId);
 
