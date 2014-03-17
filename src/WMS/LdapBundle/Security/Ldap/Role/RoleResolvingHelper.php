@@ -31,10 +31,6 @@ class RoleResolvingHelper
     public function addRoles(array $roles, GroupNode $groupNode = null)
     {
         foreach ($roles as $role) {
-            if ($groupNode !== null && !$role instanceof RoleInterface) {
-                $role = new LdapGroupMemberRole($role, $groupNode->getDn(), $groupNode->getName(), $groupNode->getDescription());
-            }
-
             $this->addRoleToUser($role);
         }
 
