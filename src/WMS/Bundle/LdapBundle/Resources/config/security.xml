@@ -1,0 +1,37 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="wms_ldap.security.authentication.provider.class">WMS\Bundle\LdapBundle\Security\Ldap\Authentication\Provider\LdapAuthenticationProvider</parameter>
+        <parameter key="wms_ldap.security.user.provider.class">WMS\Bundle\LdapBundle\Security\Ldap\User\LdapUserProvider</parameter>
+        <parameter key="wms_ldap.security.user.provider.role_resolver.class">WMS\Bundle\LdapBundle\EventListener\DefaultRoleResolverListener</parameter>
+    </parameters>
+
+    <services>
+        <service id="wms_ldap.security.authentication.provider" class="%wms_ldap.security.authentication.provider.class%" abstract="true" public="false">
+            <argument type="service" id="wms_ldap" />
+            <argument /> <!-- User Provider -->
+            <argument type="service" id="security.user_checker" />
+            <argument /> <!-- Provider-shared Key -->
+            <argument type="service" id="security.encoder_factory" />
+            <argument>%security.authentication.hide_user_not_found%</argument>
+        </service>
+
+        <service id="wms_ldap.security.user.provider" class="%wms_ldap.security.user.provider.class%" abstract="true" public="false">
+            <argument type="service" id="wms_ldap" />
+            <argument /> <!-- Connections -->
+            <argument /> <!-- Class -->
+            <argument /> <!-- Username Form -->
+            <argument /> <!-- Refresh Credentials Each X Requests -->
+            <argument /> <!-- Refresh Credentials Each X Minutes -->
+        </service>
+
+        <service id="wms_ldap.security.user.provider.role_resolver" class="%wms_ldap.security.user.provider.role_resolver.class%" abstract="true" public="false">
+            <argument /> <!-- Automating Mappings -->
+            <argument /> <!-- Mappings -->
+        </service>
+    </services>
+</container>
